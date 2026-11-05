@@ -7,4 +7,11 @@ import com.example.praktikum6.model.Siswa
 fun TampilSiswa(
     statusUiSiswa: Siswa,
     onBackButtonClicked: () -> Unit
-){}
+){
+    val items = listOf(
+        Pair("Nama", statusUiSiswa.nama),
+        Pair("Jenis Kelamin", statusUiSiswa.gender),
+        Pair("Alamat", statusUiSiswa.alamat)
+    )
+
+}
