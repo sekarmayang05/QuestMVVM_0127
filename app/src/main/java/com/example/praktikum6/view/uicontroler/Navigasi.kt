@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.praktikum6.model.DataJK
+import com.example.praktikum6.model.DataJK.JenisK
 import com.example.praktikum6.view.FormSiswa
 import com.example.praktikum6.view.TampilSiswa
 import com.example.praktikum6.viewmodel.SiswaViewModel
@@ -53,4 +54,25 @@ fun SiswaApp(
                     }
                 )
             }
+
+            composable(route = Navigasi.Detail.name) {
+                TampilSiswa(
+                    statusUiSiswa = uiState.value,
+                    onBackButtonClicked = {
+                        cancelAndBackToFormulir(navController)
+                    }
+                )
+            }
+        }
+    }
+}
+
+private fun cancelAndBackToFormulir(
+    navController: NavHostController
+) {
+    navController.popBackStack(
+        Navigasi.Formulir.name,
+        inclusive = false
+    )
+}
 
